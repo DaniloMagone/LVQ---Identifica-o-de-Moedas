@@ -1,2 +1,2 @@
-# LVQ---Identifica-o-de-Moedas
-Rede Neural LVQ para Identificação de moedas
+# LVQ---Identificao-de-Moedas
+Este código consiste em uma rede neural LVQ para indentificação de moedas de reais e foi realizado durante a disciplina de Redes Neurais Artificiais. O arquivo "training.csv" consiste nos dados utilizados para treinamento da rede. O arquivo "init.csv" Contém os dados para inicialização dos pesos. As pastas training e init contém as imagens utilizadas para gerar os respectivos arquivos. O código "extract_features" é quem gera estes arquivos a partir das imagens. Formato dos arquivos CSV: AvgCr, AvgCb, dAvgCr, dAvgCb, Raio, tipo da moeda. 
