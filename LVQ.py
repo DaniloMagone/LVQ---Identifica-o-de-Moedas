@@ -69,30 +69,29 @@ full_data=np.concatenate((init,dataset))
 t=full_data.T[5]
 #normaliza os dados deixando de fora a variável target
 full_data_normalized = np.insert(normalize_data(full_data[:,:5]), 5,t, axis=1)
-test=np.empty([20, 5])
+test=np.empty([10, 5])
 targets_test=[]
 
 #Retira 20 amostras aleatórias para teste do dataset
 for x in range(test.shape[0]):
-  i  = random.randint(4, full_data_normalized.shape[0]) -1
+  i  = random.randint(4, full_data_normalized.shape[0]-1)
   test[x, :]=full_data_normalized[i,:5]
   #a variável target do teste é colocada na variável targets_test
   targets_test.append(full_data_normalized[i,5])
   full_data_normalized=np.delete(full_data_normalized, i,axis=0)
-
 #Separa novamente os dados inciais dos pesos e o dataset de treino, deixando de fora a variável target
+t = t[5:]
 dataset=full_data_normalized[5:,:5]
 init=full_data_normalized[:5,:5]
 weights=init
-train(dataset,0.1,0.001,100)
+train(dataset,0.01,0.001,100)
 write_weights("weights.csv")
 results=run_test(test)
 cont=0
-
 #Calcula a porcentagem de acerto
 for i in range(len(results)):
   if results[i]==targets_test[i]:
     cont+=1
-print(results)
 print(targets_test)
+print(results)
 print(cont/len(results)*100)
