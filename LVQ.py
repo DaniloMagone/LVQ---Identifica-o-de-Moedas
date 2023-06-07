@@ -81,8 +81,8 @@ for x in range(test.shape[0]):
   full_data_normalized=np.delete(full_data_normalized, i,axis=0)
 
 #Separa novamente os dados inciais dos pesos e o dataset de treino, deixando de fora a variável target
-dataset=full_data[5:,:5]
-init=full_data[:5,:5]
+dataset=full_data_normalized[5:,:5]
+init=full_data_normalized[:5,:5]
 weights=init
 train(dataset,0.1,0.001,100)
 write_weights("weights.csv")
